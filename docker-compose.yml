@@ -1,0 +1,16 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - clinic-network
+    restart: unless-stopped
+
+networks:
+  clinic-network:
+    driver: bridge

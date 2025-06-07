@@ -30,7 +30,7 @@ const Home = () => {
                     color: "hsl(218, 70%, 18%);",
                   }}
                 >
-                  Мы позаботимся о вашей улыбки
+                  Мы позаботимся о вашей улыбке
                 </h2>
                 <p class="slogon">
                   Мы считаем, что каждый должен иметь легкий доступ к отличной стоматологической клинике
@@ -65,7 +65,7 @@ const Home = () => {
                 to={"/register"}
                 style={{ textDecoration: "none", color: "#fff" }}
               >
-                <div className="transperent_btn"> Связаться с врачом</div>
+                <div className="transperent_btn">Связаться с врачом</div>
               </HashLink>
             </div>
             <div className="basic_info" id="info_02">

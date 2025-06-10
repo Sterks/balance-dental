@@ -1,9 +1,9 @@
+version: '3.8'
+
 services:
   frontend:
     image: sterks/dental_clinic-frontend:latest
     platform: linux/amd64
-    expose:
-      - "80"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
@@ -11,7 +11,7 @@ services:
       - app-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`balance-dental.ru`)" # Замените на ваш домен
+      - "traefik.http.routers.frontend.rule=Host(`balance-dental.ru`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.routers.frontend.tls=true"
       - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
@@ -29,8 +29,6 @@ services:
     restart: unless-stopped
     networks:
       - app-network
-    environment:
-      - TRAEFIK_API_INSECURE=true # Для отладки, удалите в продакшене
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
@@ -43,7 +41,7 @@ services:
     volumes:
       - ./certbot/www:/var/www/certbot:rw
       - ./certbot/conf:/etc/letsencrypt:rw
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --verbose; sleep 12h & wait $${!}; done;'"
     networks:
       - app-network
 

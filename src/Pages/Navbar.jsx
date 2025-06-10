@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="logo">
           <HashLink to="/#home">
-            <img src={logo_img} alt="om dental clinic logo" />
+            <img src={logo_img} alt="logo Balance-Dental" />
           </HashLink>
           <h2>Равновесие</h2>
         </div>

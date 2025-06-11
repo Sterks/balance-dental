@@ -7,10 +7,17 @@ entryPoints:
   websecure:
     address: ":443"
 
+http:
+  middlewares:
+    redirect-to-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: "runov.denis@yandex.ru" # Replace with your email
+      email: "runov.denis@yandex.ru"
       storage: /acme.json
       httpChallenge:
         entryPoint: web
@@ -18,3 +25,6 @@ certificatesResolvers:
 providers:
   docker:
     exposedByDefault: false
+
+log:
+  level: INFO

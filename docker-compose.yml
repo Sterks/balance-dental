@@ -4,8 +4,6 @@ services:
   frontend:
     image: sterks/dental_clinic-frontend:latest
     platform: linux/amd64
-    environment:
-      - NODE_ENV=production
     restart: unless-stopped
     networks:
       - app-network
@@ -15,6 +13,7 @@ services:
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.routers.frontend.tls=true"
       - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.frontend.loadbalancer.server.port=80"
 
   traefik:
     image: traefik:v3.4.1
@@ -34,20 +33,13 @@ services:
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
       - "traefik.http.routers.http-catchall.entrypoints=web"
       - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
-
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www:/var/www/certbot:rw
-      - ./certbot/conf:/etc/letsencrypt:rw
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --verbose; sleep 12h & wait $${!}; done;'"
-    networks:
-      - app-network
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.balance-dental.ru`)"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.tls=true"
+      - "traefik.http.routers.traefik.tls.certresolver=letsencrypt"
 
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  certbot-www:
-  certbot-conf:

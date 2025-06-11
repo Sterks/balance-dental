@@ -1,19 +1,8 @@
-api:
-  dashboard: true
-
 entryPoints:
   web:
     address: ":80"
   websecure:
     address: ":443"
-
-http:
-  middlewares:
-    redirect-to-https:
-      redirectScheme:
-        scheme: https
-        permanent: true
-
 certificatesResolvers:
   letsencrypt:
     acme:
@@ -21,10 +10,7 @@ certificatesResolvers:
       storage: /acme.json
       httpChallenge:
         entryPoint: web
-
-providers:
-  docker:
-    exposedByDefault: false
-
+api:
+  dashboard: true
 log:
-  level: INFO
+  level: DEBUG

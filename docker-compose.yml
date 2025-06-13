@@ -9,11 +9,11 @@ services:
       - app-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.frontend.rule=Host(`balance-dental.ru`, `www.balance-dental.ru`)"
+      - "traefik.http.routers.frontend.rule=Host(`balance-dental.ru`) || Host(`www.balance-dental.ru`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
       - "traefik.http.routers.frontend.tls=true"
       - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.frontend-http.rule=Host(`balance-dental.ru`, `www.balance-dental.ru`)"
+      - "traefik.http.routers.frontend-http.rule=Host(`balance-dental.ru`) || Host(`www.balance-dental.ru`)"
       - "traefik.http.routers.frontend-http.entrypoints=web"
       - "traefik.http.routers.frontend-http.middlewares=redirect-to-https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"

@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   frontend:
     image: sterks/dental_clinic-frontend:latest
@@ -14,6 +16,7 @@ services:
       - "traefik.http.routers.frontend-http.rule=Host(`balance-dental.ru`, `www.balance-dental.ru`)"
       - "traefik.http.routers.frontend-http.entrypoints=web"
       - "traefik.http.routers.frontend-http.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.services.frontend.loadbalancer.server.port=80"
 
   traefik:
@@ -31,10 +34,6 @@ services:
       - app-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
-      - "traefik.http.routers.http-catchall.entrypoints=web"
-      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
 
 networks:
   app-network:

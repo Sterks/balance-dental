@@ -36,7 +36,7 @@ const ServiceData = [
     id: 6,
     img_src: "https://d3t5ai5vcxyqte.cloudfront.net/media/znrdvnh.svg",
     title: "Ортодонтическое лечение/брекеты",
-    description: "Никогда не стесняйся улыбаться",
+    description: "Мы поможем Вам чаще улыбаться",
   },
   {
     id: 7,

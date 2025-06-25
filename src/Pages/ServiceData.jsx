@@ -30,7 +30,7 @@ const ServiceData = [
     img_src:
       "https://d3t5ai5vcxyqte.cloudfront.net/media/pegjpxeakmijzlnklbubfsfun.svg",
     title: "Зубные пломбы",
-    description: "Установим лучшие пломбы, которые хорошо сочетаются друг с другом..",
+    description: "Установим лучшие пломбы, которые хорошо сочетаются с цветом ваших зубов.",
   },
   {
     id: 6,

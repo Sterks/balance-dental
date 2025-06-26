@@ -1,0 +1,22 @@
+All routes: [
+  '/About',
+  '/Appointment',
+  '/BookingHours',
+  '/ChatApp',
+  '/Contact',
+  '/Dashboard',
+  '/Home',
+  '/Login',
+  '/Navbar',
+  '/PagesData/AboutData',
+  '/PagesData/Admin/AppointmentSection',
+  '/PagesData/Admin/Dashboard',
+  '/PagesData/EveningData',
+  '/PagesData/MorningData',
+  '/Profile',
+  '/Register',
+  '/ServiceData',
+  '/Services',
+  '/SetAvatar',
+  '/UserProfile'
+]

@@ -3,7 +3,8 @@ import "./Home.css";
 import "font-awesome/css/font-awesome.min.css";
 import slider_one from "../Pages/images/slide_one.png";
 import { HashLink } from "react-router-hash-link";
-
+import JuxtaposeSL from "./JuxtaposeSL";
+ 
 const Home = () => {
   return (
     <>
@@ -51,7 +52,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
         <div className="clinic_container">
           <div className="clinic_info">
             <div className="basic_info" id="info_01">

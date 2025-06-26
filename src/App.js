@@ -15,6 +15,7 @@ import Profile from './Pages/Profile';
 import UserProfile from './Pages/UserProfile';
 import ApBooking from './Components/ApBooking';
 import Dashboard from './Pages/PagesData/Admin/Dashboard';
+import JuxtaposeSL from './Pages/JuxtaposeSL';
 
 const App = () => {
   // const [currentUser, setCurrentUser] = useState(undefined);
@@ -59,6 +60,11 @@ const App = () => {
           path="/dental-clinic/user/profile"
           element={<UserProfile />}
         />
+        <Route
+          exact
+          path="/JuxtaposeSL"
+          element={<JuxtaposeSL />}
+          />
         <Route
           exact
           path="/dental-clinic/user/chat_section"

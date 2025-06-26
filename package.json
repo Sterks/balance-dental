@@ -26,6 +26,7 @@
     "otp-generator": "^4.0.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.10",
+    "react-compare-image": "^3.5.5",
     "react-dom": "^18.3.1",
     "react-push-notification": "",
     "react-router-dom": "^6.4.1",

@@ -1,6 +1,7 @@
 import React from 'react';
 import LowerFooter from '../Components/LowerFooter';
 import './Contact.css';
+import JuxtaposeSL from './JuxtaposeSL';
 const Contact = () => {
   const clinic_data = [
     {
